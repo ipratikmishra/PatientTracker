@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">PatientTracker</string>
+
+    <!-- Login Page -->
+    <string name="tv_sign_in">Sign In!</string>
+    <string name="button_sign_in">Sign In</string>
+    <string name="tv_not_registered">Not Yet Registered?</string>
+    <string name="button_sign_up">Sign Up</string>
+
+</resources>
