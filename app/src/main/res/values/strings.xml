@@ -7,4 +7,13 @@
     <string name="tv_not_registered">Not Yet Registered?</string>
     <string name="button_sign_up">Sign Up</string>
 
+    <!--Sign Up Page-->
+    <string name="tv_email">E-mail Address</string>
+    <string name="tv_name">Name</string>
+    <string name="tv_username">Username</string>
+    <string name="tv_password">New Password</string>
+    <string name="tv_confirm_password">Confirm Password</string>
+
+    <!-- Main Activity Page -->
+    <string name="tv_welcome_username">Welcome User!</string>
 </resources>
