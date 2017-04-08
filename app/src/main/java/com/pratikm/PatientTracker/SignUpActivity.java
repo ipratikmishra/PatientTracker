@@ -35,7 +35,13 @@ public class SignUpActivity extends AppCompatActivity {
             if (!(confirmPassword).equals(password)) {
                 Toast error = Toast.makeText(SignUpActivity.this, "Passwords entered do not match!", Toast.LENGTH_SHORT);
                 error.show();
-            } else {
+            }
+            else if (!((helper.searchPass(username)).equals("Not Found"))){
+                Toast error = Toast.makeText(SignUpActivity.this, "Username already exists!", Toast.LENGTH_SHORT);
+                error.show();
+            }
+
+            else {
                 Contacts c = new Contacts();
                 c.setName(name);
                 c.setEmail(email);
@@ -43,6 +49,9 @@ public class SignUpActivity extends AppCompatActivity {
                 c.setPassword(password);
 
                 helper.insertContact(c);
+                Toast userCreatedMessage = Toast.makeText(SignUpActivity.this, "New User Registered!", Toast.LENGTH_LONG);
+                userCreatedMessage.show();
+                this.finish();
             }
     }
 }

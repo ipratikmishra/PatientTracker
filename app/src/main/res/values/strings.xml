@@ -16,4 +16,8 @@
 
     <!-- Main Activity Page -->
     <string name="tv_welcome_username">Welcome User!</string>
+    <string name="tv_doctor_menu">Doctor\'s Menu</string>
+    <string name="button_add_patient">Add Patient Profile</string>
+    <string name="button_search_name">Search By Name</string>
+    <string name="button_search_arrival">Search By Arrival</string>
 </resources>
