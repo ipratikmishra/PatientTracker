@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="0dp">
+    tools:layout_editor_absoluteY="0dp"
+    android:background="@color/colorBackground">
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -21,7 +22,7 @@
         android:layout_height="wrap_content"
         android:text="@string/tv_welcome_username"
         android:textSize="30sp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorText"
         android:fontFamily="sans-serif-light"
         android:textStyle="italic"
         app:layout_constraintTop_toTopOf="parent"
@@ -35,6 +36,7 @@
         android:layout_height="wrap_content"
         android:text="@string/tv_doctor_menu"
         android:textAllCaps="true"
+        android:textColor="@color/colorText"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginTop="55dp"
@@ -48,6 +50,7 @@
         android:layout_height="42dp"
         android:padding="0dp"
         android:text="@string/button_add_patient"
+        android:background="@drawable/mybutton"
         android:layout_marginLeft="107dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="44dp"
@@ -60,6 +63,7 @@
         android:padding="0dp"
         android:text="@string/button_search_name"
         android:layout_marginTop="16dp"
+        android:background="@drawable/mybutton"
         app:layout_constraintTop_toBottomOf="@+id/button_add_patient"
         android:layout_marginLeft="-6dp"
         app:layout_constraintLeft_toLeftOf="@+id/button_add_patient" />
@@ -71,6 +75,7 @@
         android:padding="0dp"
         android:text="@string/button_search_arrival"
         android:layout_marginTop="16dp"
+        android:background="@drawable/mybutton"
         app:layout_constraintTop_toBottomOf="@+id/button_search_name"
         android:layout_marginLeft="0dp"
         app:layout_constraintLeft_toLeftOf="@+id/button_search_name" />

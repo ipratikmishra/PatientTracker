@@ -17,13 +17,14 @@ public class LoginActivty extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final EditText mUsernameEditText;
-        final EditText mPasswordEditText;
         Button mSignUpButton;
         Button mSignInButton;
 
-        mUsernameEditText = (EditText) findViewById(R.id.editText_username);
-        mPasswordEditText = (EditText) findViewById(R.id.editText_password);
+        final Session session = new Session(this);
+        if(session.loggedIn()) {
+            startActivity(new Intent(LoginActivty.this, MainActivity.class));
+            finish();
+        }
         mSignUpButton = (Button) findViewById(R.id.button_sign_up);
         mSignInButton = (Button) findViewById(R.id.button_sign_in);
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
@@ -39,14 +40,21 @@ public class LoginActivty extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                     if (view.getId()==R.id.button_sign_in){
+                        final EditText mUsernameEditText;
+                        final EditText mPasswordEditText;
+                        mUsernameEditText = (EditText) findViewById(R.id.editText_username);
+                        mPasswordEditText = (EditText) findViewById(R.id.editText_password);
                         String username = mUsernameEditText.getText().toString();
                         String password = mPasswordEditText.getText().toString();
                         String pass = helper.searchPass(username);
 
                         if(pass.equals(password)){
+                            session.setLoggedIn(true);
                             Intent intent = new Intent(LoginActivty.this, MainActivity.class);
                             intent.putExtra("Username",username);
                             startActivity(intent);
+                            finish();
+
                         }
                         else {
                             Toast error1 = Toast.makeText(LoginActivty.this, "Wrong email/password entered!", Toast.LENGTH_LONG);

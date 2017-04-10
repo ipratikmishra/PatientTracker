@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@color/colorFormBackground"
     tools:context="com.pratikm.PatientTracker.AddPatientActivity">
 
     <android.support.design.widget.AppBarLayout

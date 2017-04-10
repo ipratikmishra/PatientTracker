@@ -40,7 +40,18 @@ public class SignUpActivity extends AppCompatActivity {
                 Toast error = Toast.makeText(SignUpActivity.this, "Username already exists!", Toast.LENGTH_SHORT);
                 error.show();
             }
-
+            else if((username).equals("")){
+                Toast error = Toast.makeText(SignUpActivity.this, "Please enter valid Username", Toast.LENGTH_SHORT);
+                error.show();
+            }
+            else if((name).equals("")) {
+                Toast error = Toast.makeText(SignUpActivity.this, "Please enter valid Name", Toast.LENGTH_SHORT);
+                error.show();
+            }
+            else if(password.length()<6 || password.length()>18) {
+                Toast error = Toast.makeText(SignUpActivity.this, "Passwords enter a password longer than 6 characters!", Toast.LENGTH_SHORT);
+                error.show();
+            }
             else {
                 Contacts c = new Contacts();
                 c.setName(name);

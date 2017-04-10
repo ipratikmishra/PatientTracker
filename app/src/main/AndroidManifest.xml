@@ -23,6 +23,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
+            android:theme="@style/AppTheme.ActionBar"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AddPatientActivity"

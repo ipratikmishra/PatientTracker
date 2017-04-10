@@ -39,5 +39,6 @@
     <string name="tv_medication">Medication</string>
     <string name="tv_note">Note/Remarks</string>
     <string name="tv_date_of_visit">Date of Visit</string>
+    <string name="button_save">Save</string>
 
 </resources>

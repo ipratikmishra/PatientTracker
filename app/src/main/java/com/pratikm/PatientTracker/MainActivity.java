@@ -3,6 +3,9 @@ package com.pratikm.PatientTracker;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,19 +15,28 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private Session session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        session = new Session(this);
+        if(!(session.loggedIn())) {
+            logout();
+        }
+
         TextView mTextViewWelcome = (TextView)findViewById(R.id.tv_welcome_username);
         Calendar c=Calendar.getInstance();
         c.setTime(new Date());
         int hour = c.get(Calendar.HOUR_OF_DAY);
         String welcomeMessage;
-        if(hour>=12&&hour<=24)
-            welcomeMessage = "Good Afternoon, " + getIntent().getStringExtra("Username");
+        if(hour>=12&&hour<=17)
+            welcomeMessage = "Good Afternoon";
+        else if(hour>=18&&hour<=24)
+            welcomeMessage = "Good Evening";
         else
-            welcomeMessage = "Good Morning, " + getIntent().getStringExtra("Username");
+            welcomeMessage = "Good Morning";
 
         mTextViewWelcome.setText(welcomeMessage);
 
@@ -51,5 +63,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_search_arrival:
                 break;
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main_logout, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_logout) {
+            logout();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void logout() {
+        session.setLoggedIn(false);
+        finish();
+        startActivity(new Intent(MainActivity.this, LoginActivty.class));
     }
 }
