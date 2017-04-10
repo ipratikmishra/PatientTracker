@@ -15,7 +15,7 @@
         android:layout_marginStart="16dp"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="25dp"
-        android:layout_marginLeft="25dp"
+        android:layout_marginLeft="16dp"
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <TextView
@@ -64,84 +64,87 @@
         android:layout_height="wrap_content"
         android:text="@string/tv_address"
         android:textSize="16sp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintTop_toBottomOf="@+id/tv_addemail"
-        android:layout_marginLeft="0dp"
         app:layout_constraintLeft_toLeftOf="@+id/tv_addemail" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editText_firstname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintLeft_toRightOf="@+id/tv_firstname"
-        android:layout_marginLeft="43dp"
+        android:layout_marginLeft="36dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="36dp" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editText_lastname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:layout_marginTop="14dp"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
-        android:layout_marginLeft="0dp"
-        app:layout_constraintLeft_toLeftOf="@+id/editText" />
+        app:layout_constraintLeft_toLeftOf="@+id/editText_firstname"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_lastname"
+        app:layout_constraintTop_toTopOf="@+id/tv_lastname" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/editText_mobile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="phone"
-        android:layout_marginLeft="0dp"
-        app:layout_constraintLeft_toLeftOf="@+id/editText2"
-        android:layout_marginTop="13dp"
-        app:layout_constraintTop_toBottomOf="@+id/radioButton" />
+        app:layout_constraintLeft_toLeftOf="@+id/editText_lastname"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_mobile"
+        app:layout_constraintTop_toTopOf="@+id/tv_mobile" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/editText_email_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/editText3"
-        android:layout_marginLeft="0dp"
-        app:layout_constraintLeft_toLeftOf="@+id/editText3" />
+        app:layout_constraintLeft_toLeftOf="@+id/editText_mobile"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_addemail"
+        app:layout_constraintTop_toTopOf="@+id/tv_addemail" />
 
     <EditText
-        android:id="@+id/editText7"
+        android:id="@+id/editText_postal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPostalAddress"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/editText4"
-        android:layout_marginLeft="0dp"
-        app:layout_constraintLeft_toLeftOf="@+id/editText4" />
+        app:layout_constraintLeft_toLeftOf="@+id/editText_email_add"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_address"
+        app:layout_constraintTop_toTopOf="@+id/tv_address" />
 
-    <RadioButton
-        android:id="@+id/radioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Male"
-        android:layout_marginTop="9dp"
-        app:layout_constraintTop_toBottomOf="@+id/editText2"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="@+id/editText2" />
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="151dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="19dp"
+        android:checkedButton="@+id/rb_female"
+        android:orientation="horizontal"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintLeft_toLeftOf="@+id/editText_mobile"
+        app:layout_constraintRight_toRightOf="@+id/editText_mobile"
+        app:layout_constraintTop_toBottomOf="@+id/editText_lastname">
 
-    <RadioButton
-        android:id="@+id/radioButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Female"
-        android:layout_marginTop="9dp"
-        app:layout_constraintTop_toBottomOf="@+id/editText2"
-        app:layout_constraintLeft_toRightOf="@+id/radioButton"
-        android:layout_marginLeft="41dp" />
+        <RadioButton
+            android:id="@+id/rb_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Female" />
+
+        <RadioButton
+            android:id="@+id/rb_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male" />
+    </RadioGroup>
 
 </android.support.constraint.ConstraintLayout>

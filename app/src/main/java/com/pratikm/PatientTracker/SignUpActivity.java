@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    DbHelperClass helper = new DbHelperClass(this);
+    LoginCRUD helper = new LoginCRUD(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

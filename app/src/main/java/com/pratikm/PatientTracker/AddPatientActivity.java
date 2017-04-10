@@ -17,6 +17,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 public class AddPatientActivity extends AppCompatActivity {
@@ -54,6 +57,24 @@ public class AddPatientActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
+        //FindViewByIds for ContactDetails Tab
+        EditText mEditTextFirstName = (EditText)findViewById(R.id.editText_firstname);
+        EditText mEditTextLastName = (EditText)findViewById(R.id.editText_lastname);
+        EditText mEditTextMobile = (EditText)findViewById(R.id.editText_mobile);
+        EditText mEditTextEmail = (EditText)findViewById(R.id.editText_email_add);
+        EditText mEditTextPostalAddress = (EditText)findViewById(R.id.editText_postal);
+
+        RadioButton mRadioButtonMale = (RadioButton)findViewById(R.id.rb_male);
+        RadioButton mRadioButtonFemale = (RadioButton)findViewById(R.id.rb_female);
+
+        //FindViewByIds for ContactDetails Tab
+        EditText mEditTextAge = (EditText)findViewById(R.id.editText_age);
+        EditText mEditTextCondition = (EditText)findViewById(R.id.editText_condition);
+        EditText mEditTextMedication = (EditText)findViewById(R.id.editText_medication);
+        EditText mEditTextNotes = (EditText)findViewById(R.id.editText_notes);
+        EditText mEditTextDateVisit = (EditText)findViewById(R.id.editText_visit_date);
+
+        Button mButtonSave = (Button)findViewById(R.id.button_save);
     }
 
 
