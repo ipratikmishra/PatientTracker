@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="com.pratikm.PatientTracker.AddContactActivity">
 
     <TextView
         android:id="@+id/tv_firstname"
@@ -135,16 +135,49 @@
         <RadioButton
             android:id="@+id/rb_female"
             android:layout_width="wrap_content"
+            android:onClick="rbClick"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
-            android:text="Female" />
+            android:text="@string/female" />
 
         <RadioButton
             android:id="@+id/rb_male"
+            android:onClick="rbClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Male" />
+            android:text="@string/male" />
     </RadioGroup>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:background="@drawable/mybutton"
+        android:layout_marginTop="54dp"
+        android:onClick="onClickSave"
+        app:layout_constraintTop_toBottomOf="@+id/editText_postal"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Health Details"
+        android:onClick="onClickSaveHealthDetails"
+        android:background="@drawable/mybutton"
+        android:padding="16dp"
+        android:layout_marginTop="21dp"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

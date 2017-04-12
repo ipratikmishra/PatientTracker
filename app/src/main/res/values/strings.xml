@@ -26,12 +26,26 @@
     <string name="section_format">Hello World from section: %1$d</string>
 
     <!--Contact and Health tabs-->
+    <string-array name="blood_group">
+        <item>O +</item>
+        <item>O -</item>
+        <item>A +</item>
+        <item>A -</item>
+        <item>B +</item>
+        <item>B -</item>
+        <item>AB +</item>
+        <item>AB -</item>
+    </string-array>
+
     <string name="tv_firstname">First Name</string>
     <string name="tv_lastname">Last Name</string>
     <string name="tv_gender">Sex</string>
     <string name="tv_mobile">Mobile No.</string>
     <string name="tv_add_email">E-mail</string>
     <string name="tv_address">Address</string>
+
+    <string name="male">Male</string>
+    <string name="female">Female</string>
 
     <string name="tv_age">Age</string>
     <string name="tv_blood_group">Blood Group</string>
@@ -40,5 +54,9 @@
     <string name="tv_note">Note/Remarks</string>
     <string name="tv_date_of_visit">Date of Visit</string>
     <string name="button_save">Save</string>
+
+    <!--SearchNameActivity -->
+    <string name="view_search">Search</string>
+    <string name="action_bar_label">Search By Name</string>
 
 </resources>

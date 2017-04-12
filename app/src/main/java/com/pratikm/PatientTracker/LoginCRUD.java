@@ -17,7 +17,18 @@ public class LoginCRUD {
         helper = new DbHelperClass(context);
     }
 
-    public void insertContact(Contacts c) {
+    public static String createTable() {
+        return "CREATE TABLE " + LoginEntry.TABLE_NAME + " ( " +
+                LoginEntry.COLUMN_ID  + " INT PRIMARY KEY NOT NULL, " +
+                LoginEntry.COLUMN_NAME + " TEXT NOT NULL, " +
+                LoginEntry.COLUMN_USERNAME + " TEXT NOT NULL, " +
+                LoginEntry.COLUMN_EMAIL + " TEXT NOT NULL, " +
+                LoginEntry.COLUMN_PASSWORD + " TEXT NOT NULL);";
+    }
+    public static String deleteTable() {
+        return "DROP TABLE IF EXISTS " + LoginEntry.TABLE_NAME;
+    }
+    public void insertContact(LoginContract c) {
         SQLiteDatabase db = helper.getReadableDatabase();
         ContentValues values = new ContentValues();
         String query = "SELECT * FROM " + LoginEntry.TABLE_NAME + ";";
@@ -29,6 +40,7 @@ public class LoginCRUD {
         values.put(LoginEntry.COLUMN_EMAIL, c.getEmail());
         values.put(LoginEntry.COLUMN_PASSWORD, c.getPassword());
         db.insert(LoginEntry.TABLE_NAME, null, values);
+        cursor.close();
         db.close();
     }
 
@@ -47,7 +59,8 @@ public class LoginCRUD {
                 }
             }while(cursor.moveToNext());
         }
+        cursor.close();
+        db.close();
         return b;
-
     }
 }

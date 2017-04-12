@@ -17,27 +17,23 @@ public class DbHelperClass extends SQLiteOpenHelper {
 
     SQLiteDatabase db;
 
-    private static final String query = "CREATE TABLE " + LoginEntry.TABLE_NAME + " ( " +
-            LoginEntry.COLUMN_ID  + " INT PRIMARY KEY NOT NULL, " +
-            LoginEntry.COLUMN_NAME + " TEXT NOT NULL, " +
-            LoginEntry.COLUMN_USERNAME + " TEXT NOT NULL, " +
-            LoginEntry.COLUMN_EMAIL + " TEXT NOT NULL, " +
-            LoginEntry.COLUMN_PASSWORD + " TEXT NOT NULL);";
-
     public DbHelperClass(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(query);
+        sqLiteDatabase.execSQL(LoginCRUD.createTable());
+        sqLiteDatabase.execSQL(PatientContactCRUD.createTable());
+        sqLiteDatabase.execSQL(PatientHealthCRUD.createTable());
         this.db = sqLiteDatabase;
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + LoginEntry.TABLE_NAME);
+        sqLiteDatabase.execSQL(LoginCRUD.deleteTable());
+        sqLiteDatabase.execSQL(PatientContactCRUD.deleteTable());
+        sqLiteDatabase.execSQL(PatientHealthCRUD.deleteTable());
         onCreate(sqLiteDatabase);
     }
 }

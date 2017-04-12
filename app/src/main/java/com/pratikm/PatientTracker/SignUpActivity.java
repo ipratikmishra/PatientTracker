@@ -53,7 +53,7 @@ public class SignUpActivity extends AppCompatActivity {
                 error.show();
             }
             else {
-                Contacts c = new Contacts();
+                LoginContract c = new LoginContract();
                 c.setName(name);
                 c.setEmail(email);
                 c.setUsername(username);

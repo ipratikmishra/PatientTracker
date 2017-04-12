@@ -23,12 +23,22 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.ActionBar"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.ActionBar" />
         <activity
-            android:name=".AddPatientActivity"
-            android:label="@string/title_activity_add_patient"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".SearchNameActivity"
+            android:label="@string/action_bar_label"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.ActionBar" />
+        <activity
+            android:name=".AddContactActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.ActionBar" />
+        <activity
+            android:name=".AddHealthActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.ActionBar"></activity>
+        <activity android:name=".HealthDetailsActivity"></activity>
     </application>
 
 </manifest>

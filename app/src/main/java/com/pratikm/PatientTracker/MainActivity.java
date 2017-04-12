@@ -55,10 +55,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.button_add_patient:
-                Intent intent = new Intent(MainActivity.this, AddPatientActivity.class);
+                Intent intent = new Intent(MainActivity.this, AddContactActivity.class);
                 startActivity(intent);
                 break;
             case R.id.button_search_name:
+                Intent searchIntent = new Intent(MainActivity.this, SearchNameActivity.class);
+                startActivity(searchIntent);
                 break;
             case R.id.button_search_arrival:
                 break;
