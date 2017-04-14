@@ -59,4 +59,13 @@
     <string name="view_search">Search</string>
     <string name="action_bar_label">Search By Name</string>
 
+    <!--HealthDetailsAdapter-->
+
+    <string name="tv_patient_age">Age:</string>
+    <string name="tv_patient_bloodGroup">Blood Group:</string>
+    <string name="tv_patient_condition">Condition:</string>
+    <string name="tv_patient_medication">Medication:</string>
+    <string name="tv_patient_notes">Notes:</string>
+    <string name="tv_patient_DateVisit">Date of Visit</string>
+
 </resources>

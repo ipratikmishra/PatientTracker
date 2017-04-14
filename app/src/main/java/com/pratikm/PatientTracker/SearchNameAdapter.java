@@ -3,15 +3,19 @@ package com.pratikm.PatientTracker;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by pratikmishra on 12/04/17.
@@ -35,7 +39,7 @@ public class SearchNameAdapter extends RecyclerView.Adapter<SearchNameAdapter.My
         public MyMainViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
-            linearLayout = (LinearLayout) itemView.findViewById(R.id.mainLayout);
+            linearLayout = (LinearLayout) itemView.findViewById(R.id.mainLayout_contact);
             mTextViewPatientFirstName = (TextView) itemView.findViewById(R.id.tv_patient_first_name);
             mTextViewPatientLastName = (TextView) itemView.findViewById(R.id.tv_patient_last_name);
             mTextViewPatientSex = (TextView) itemView.findViewById(R.id.tv_patient_sex);
@@ -45,12 +49,16 @@ public class SearchNameAdapter extends RecyclerView.Adapter<SearchNameAdapter.My
         }
 
         @Override
-        public void onClick(View view) {
-            Intent intent = new Intent(context, HealthDetailsActivity.class);
-            context.startActivity(new Intent(context, HealthDetailsActivity.class));
+        public void onClick(View itemView) {
+            Log.d(TAG, "onClick ");
+            Toast clickMessage = Toast.makeText(itemView.getContext(), "CLICKED!", Toast.LENGTH_LONG);
+            clickMessage.show();
+            Intent i = new Intent(itemView.getContext(), HealthDetailsActivity.class);
+            i.putExtra("clickedPatientEmail", mTextViewPatientEmail.getText().toString());
+            itemView.getContext().startActivity(i);
         }
-    }
 
+    }
 
     @Override
     public MyMainViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -69,11 +77,8 @@ public class SearchNameAdapter extends RecyclerView.Adapter<SearchNameAdapter.My
         holder.mTextViewPatientMobile.setText(currentPatient.getMobile());
     }
 
-
-
     @Override
     public int getItemCount() {
         return patientList.size();
     }
-
 }

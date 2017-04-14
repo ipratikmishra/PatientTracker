@@ -24,13 +24,13 @@ public class PatientContactCRUD {
 
     public static String createTable() {
         return "CREATE TABLE " + PatientContactEntry.TABLE_NAME + " ( " +
-                PatientContactEntry.COLUMN_ID  + " INT NOT NULL, " +
+                PatientContactEntry.COLUMN_ID  + " INT PRIMARY KEY NOT NULL, " +
                 PatientContactEntry.COLUMN_FIRST_NAME + " TEXT NOT NULL, " +
                 PatientContactEntry.COLUMN_LAST_NAME + " TEXT NOT NULL, " +
                 PatientContactEntry.COLUMN_SEX + " TEXT NOT NULL, " +
                 PatientContactEntry.COLUMN_MOBILE + " TEXT NOT NULL, " +
-                PatientContactEntry.COLUMN_EMAIL + " TEXT PRIMARY KEY NOT NULL, " +
-                PatientContactEntry.COLUMN_ADDRESS + " TEXT NOT NULL);";
+                PatientContactEntry.COLUMN_EMAIL + " TEXT KEY NOT NULL, " +
+                PatientContactEntry.COLUMN_ADDRESS + " TEXT);";
     }
     public static String deleteTable() {
         return "DROP TABLE IF EXISTS " + PatientContactEntry.TABLE_NAME;

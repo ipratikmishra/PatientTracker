@@ -18,22 +18,26 @@ import java.util.HashMap;
 public class HealthDetailsAdapter extends RecyclerView.Adapter<HealthDetailsAdapter.ViewHolder> {
 
     Context context;
-    private ArrayList<HashMap<String, String>> healthList;
+    private ArrayList<PatientHealthContract> healthList;
 
-    public HealthDetailsAdapter(Context context, ArrayList<HashMap<String, String>> healthList) {
+    public HealthDetailsAdapter(Context context, ArrayList<PatientHealthContract> healthList) {
         this.healthList = healthList;
         this.context = context;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView mTextViewAge, mTextViewBloodGroup;
+        TextView mTextViewAge, mTextViewBloodGroup, mTextViewCondition, mTextViewMedication, mTextViewNotes, mTextViewDateVisit;
         LinearLayout linearLayout;
 
         public ViewHolder(View itemView) {
             super(itemView);
             linearLayout = (LinearLayout) itemView.findViewById(R.id.mainLayout_health);
-            mTextViewAge = (TextView) itemView.findViewById(R.id.tv_age);
-            mTextViewBloodGroup = (TextView) itemView.findViewById(R.id.tv_blood_group);
+            mTextViewAge = (TextView) itemView.findViewById(R.id.tv_patient_age_value);
+            mTextViewBloodGroup = (TextView) itemView.findViewById(R.id.tv_patient_blood_value);
+            mTextViewCondition = (TextView) itemView.findViewById(R.id.tv_patient_condition_value);
+            mTextViewMedication = (TextView) itemView.findViewById(R.id.tv_patient_medication_value);
+            mTextViewNotes = (TextView) itemView.findViewById(R.id.tv_patient_note_value);
+            mTextViewDateVisit = (TextView) itemView.findViewById(R.id.tv_patient_DateVisit);
         }
     }
     @Override
@@ -45,8 +49,13 @@ public class HealthDetailsAdapter extends RecyclerView.Adapter<HealthDetailsAdap
 
     @Override
     public void onBindViewHolder(HealthDetailsAdapter.ViewHolder holder, int position) {
-        holder.mTextViewAge.setText(healthList.get(position).get("age"));
-        holder.mTextViewBloodGroup.setText(healthList.get(position).get("bloodGroup"));
+        PatientHealthContract healthListItem = healthList.get(position);
+        holder.mTextViewAge.setText(healthListItem.getAge());
+        holder.mTextViewBloodGroup.setText(healthListItem.getBloodGroup());
+        holder.mTextViewCondition.setText(healthListItem.getCondition());
+        holder.mTextViewMedication.setText(healthListItem.getMedication());
+        holder.mTextViewNotes.setText(healthListItem.getNotes());
+        holder.mTextViewDateVisit.setText(healthListItem.getDateVisit());
     }
 
     @Override
