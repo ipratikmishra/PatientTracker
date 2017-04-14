@@ -63,7 +63,7 @@ public class AddContactActivity extends AppCompatActivity {
             Toast error = Toast.makeText(AddContactActivity.this, "Required fields * are empty", Toast.LENGTH_LONG);
             error.show();
         }
-        if(mobile.length()<11) {
+        if(mobile.length()<10) {
             Toast error = Toast.makeText(AddContactActivity.this, "Mobile number must be 10 digits", Toast.LENGTH_SHORT);
             error.show();
         }

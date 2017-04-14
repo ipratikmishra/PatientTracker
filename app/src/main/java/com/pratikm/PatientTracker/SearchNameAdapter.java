@@ -20,15 +20,15 @@ import java.util.HashMap;
 public class SearchNameAdapter extends RecyclerView.Adapter<SearchNameAdapter.MyMainViewHolder> {
 
     private Context context;
-    private ArrayList<HashMap<String, String>> patientList;
+    private ArrayList<PatientContactContract> patientList;
 
-    public SearchNameAdapter(Context context, ArrayList<HashMap<String, String>> patientList) {
+    public SearchNameAdapter(Context context, ArrayList<PatientContactContract> patientList) {
         this.patientList = patientList;
         this.context = context;
     }
 
     public class MyMainViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView mTextViewPatientFirstName, mTextViewPatientLastName;
+        TextView mTextViewPatientFirstName, mTextViewPatientLastName, mTextViewPatientSex, mTextViewPatientEmail, mTextViewPatientMobile;
         ImageView mImageViewUser;
         LinearLayout linearLayout;
 
@@ -38,11 +38,15 @@ public class SearchNameAdapter extends RecyclerView.Adapter<SearchNameAdapter.My
             linearLayout = (LinearLayout) itemView.findViewById(R.id.mainLayout);
             mTextViewPatientFirstName = (TextView) itemView.findViewById(R.id.tv_patient_first_name);
             mTextViewPatientLastName = (TextView) itemView.findViewById(R.id.tv_patient_last_name);
+            mTextViewPatientSex = (TextView) itemView.findViewById(R.id.tv_patient_sex);
+            mTextViewPatientEmail = (TextView) itemView.findViewById(R.id.tv_patient_email);
+            mTextViewPatientMobile = (TextView) itemView.findViewById(R.id.tv_patient_mobile);
             mImageViewUser = (ImageView) itemView.findViewById(R.id.ic_user);
         }
 
         @Override
         public void onClick(View view) {
+            Intent intent = new Intent(context, HealthDetailsActivity.class);
             context.startActivity(new Intent(context, HealthDetailsActivity.class));
         }
     }
@@ -57,9 +61,12 @@ public class SearchNameAdapter extends RecyclerView.Adapter<SearchNameAdapter.My
 
     @Override
     public void onBindViewHolder(final MyMainViewHolder holder, final int position) {
-        holder.mTextViewPatientFirstName.setText(patientList.get(position).get("firstName"));
-        holder.mTextViewPatientLastName.setText(patientList.get(position).get("lastName"));
-
+        PatientContactContract currentPatient = patientList.get(position);
+        holder.mTextViewPatientFirstName.setText(currentPatient.getFirstName());
+        holder.mTextViewPatientLastName.setText(currentPatient.getLastName());
+        holder.mTextViewPatientSex.setText(currentPatient.getSex());
+        holder.mTextViewPatientEmail.setText(currentPatient.getEmailAddress());
+        holder.mTextViewPatientMobile.setText(currentPatient.getMobile());
     }
 
 

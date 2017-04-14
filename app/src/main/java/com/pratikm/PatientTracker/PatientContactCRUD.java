@@ -53,6 +53,45 @@ public class PatientContactCRUD {
         cursor.close();
         db.close();
     }
+
+    public ArrayList<PatientContactContract> getPatientList() {
+        //Open connection to read only
+        SQLiteDatabase db = helper.getReadableDatabase();
+        String selectQuery =  "SELECT  " +
+                PatientContactEntry.COLUMN_FIRST_NAME + "," +
+                PatientContactEntry.COLUMN_LAST_NAME + "," +
+                PatientContactEntry.COLUMN_SEX + "," +
+                PatientContactEntry.COLUMN_MOBILE + "," +
+                PatientContactEntry.COLUMN_EMAIL + "," +
+                PatientContactEntry.COLUMN_ADDRESS +
+                " FROM " + PatientContactEntry.TABLE_NAME;
+
+        //PatientContactEntry patient = new PatientContactEntry();
+        ArrayList<PatientContactContract> patientList = new ArrayList<>();
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                PatientContactContract patient = new PatientContactContract();
+                patient.setFirstName(cursor.getString(cursor.getColumnIndex(PatientContactEntry.COLUMN_FIRST_NAME)));
+                patient.setLastName(cursor.getString(cursor.getColumnIndex(PatientContactEntry.COLUMN_LAST_NAME)));
+                patient.setSex(cursor.getString(cursor.getColumnIndex(PatientContactEntry.COLUMN_SEX)));
+                patient.setEmailAddress(cursor.getString(cursor.getColumnIndex(PatientContactEntry.COLUMN_EMAIL)));
+                patient.setPostalAddress(cursor.getString(cursor.getColumnIndex(PatientContactEntry.COLUMN_ADDRESS)));
+                patient.setMobile(cursor.getString(cursor.getColumnIndex(PatientContactEntry.COLUMN_MOBILE)));
+                patientList.add(patient);
+
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return patientList;
+
+    }
+
+    /*
     public ArrayList<HashMap<String, String>> getPatientList() {
         //Open connection to read only
         SQLiteDatabase db = helper.getReadableDatabase();
@@ -75,7 +114,7 @@ public class PatientContactCRUD {
             do {
                 HashMap<String, String> patient = new HashMap<String, String>();
                 patient.put("firstName", cursor.getString(cursor.getColumnIndex(PatientContactEntry.COLUMN_FIRST_NAME)));
-                patient.put("lastName", cursor.getString(cursor.getColumnIndex(PatientContactEntry.COLUMN_LAST_NAME)));
+                patient.put("email", cursor.getString(cursor.getColumnIndex(PatientContactEntry.COLUMN_EMAIL)));
                 patientList.add(patient);
 
             } while (cursor.moveToNext());
@@ -87,7 +126,7 @@ public class PatientContactCRUD {
 
     }
 
-
+  */
 
     public PatientContactContract getPatientById(int Id){
         SQLiteDatabase db = helper.getReadableDatabase();
