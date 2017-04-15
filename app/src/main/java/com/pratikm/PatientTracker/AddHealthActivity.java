@@ -12,17 +12,7 @@ import android.widget.Toast;
 public class AddHealthActivity extends AppCompatActivity {
 
     PatientHealthCRUD helper = new PatientHealthCRUD(this);
-    String email;
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    public String getEmail() { return this.email; }
     Spinner mSpinnerBloodGroup;
-    public static String bloodType;
-    public void setBloodType(String bloodType) {
-        this.bloodType = bloodType;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +43,18 @@ public class AddHealthActivity extends AppCompatActivity {
             }
         });
     }
+
+    String email;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getEmail() { return this.email; }
+
+    String bloodType;
+    public void setBloodType(String bloodType) {
+        this.bloodType = bloodType;
+    }
+
     public void onSaveClick(View view) {
 
 
@@ -72,7 +74,7 @@ public class AddHealthActivity extends AppCompatActivity {
         String notes = mEditTextNotes.getText().toString();
         String dateVisit = mEditTextDateVisit.getText().toString();
 
-        if(dateVisit.equals("")) {
+        if(dateVisit.equals("")||getEmail()==null) {
             Toast error = Toast.makeText(AddHealthActivity.this, "Required fields * are empty", Toast.LENGTH_LONG);
             error.show();
         }
@@ -90,7 +92,7 @@ public class AddHealthActivity extends AppCompatActivity {
             helper.insertPatientHealth(h);
             Toast patientCreatedMessage = Toast.makeText(AddHealthActivity.this, "Health Information Added!", Toast.LENGTH_LONG);
             patientCreatedMessage.show();
-            finish();
+            this.finish();
         }
 
     }

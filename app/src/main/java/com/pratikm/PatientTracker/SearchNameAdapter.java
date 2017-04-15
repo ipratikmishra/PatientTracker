@@ -50,9 +50,6 @@ public class SearchNameAdapter extends RecyclerView.Adapter<SearchNameAdapter.My
 
         @Override
         public void onClick(View itemView) {
-            Log.d(TAG, "onClick ");
-            Toast clickMessage = Toast.makeText(itemView.getContext(), "CLICKED!", Toast.LENGTH_LONG);
-            clickMessage.show();
             Intent i = new Intent(itemView.getContext(), HealthDetailsActivity.class);
             i.putExtra("clickedPatientEmail", mTextViewPatientEmail.getText().toString());
             itemView.getContext().startActivity(i);

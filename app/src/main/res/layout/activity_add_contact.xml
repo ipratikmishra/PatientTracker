@@ -51,13 +51,14 @@
 
     <TextView
         android:id="@+id/tv_addemail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="123dp"
+        android:layout_height="17dp"
         android:text="@string/tv_email"
         android:textSize="16sp"
         android:layout_marginTop="32dp"
         app:layout_constraintTop_toBottomOf="@+id/tv_mobile"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_mobile" />
+        app:layout_constraintLeft_toLeftOf="@+id/tv_mobile"
+        android:layout_marginLeft="0dp" />
 
     <TextView
         android:id="@+id/tv_address"
@@ -154,10 +155,11 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save"
+        android:text="Save And Proceed"
         android:background="@drawable/mybutton"
         android:layout_marginTop="37dp"
         android:onClick="onClickSave"
+        android:padding="10dp"
         app:layout_constraintTop_toBottomOf="@+id/editText_postal"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -166,19 +168,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Health Details"
-        android:onClick="onClickSaveHealthDetails"
-        android:background="@drawable/mybutton"
-        android:padding="16dp"
-        android:layout_marginTop="9dp"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>

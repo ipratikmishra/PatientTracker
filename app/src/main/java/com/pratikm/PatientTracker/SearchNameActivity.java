@@ -2,6 +2,7 @@ package com.pratikm.PatientTracker;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ public class SearchNameActivity extends AppCompatActivity implements SearchView.
     PatientContactCRUD patients = new PatientContactCRUD(this);
     RecyclerView mRecyclerView;
     Toolbar toolbar;
+    FloatingActionButton floatingActionButton;
     SearchNameAdapter mRecyclerViewAdapter;
     ArrayList<PatientContactContract> patientList = new ArrayList<>();
 
@@ -39,6 +41,13 @@ public class SearchNameActivity extends AppCompatActivity implements SearchView.
         mRecyclerView.setAdapter(mRecyclerViewAdapter);
         toolbar = (Toolbar) findViewById(R.id.toolbar_search);
         setSupportActionBar(toolbar);
+        floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SearchNameActivity.this,AddContactActivity.class));
+            }
+        });
     }
 
 

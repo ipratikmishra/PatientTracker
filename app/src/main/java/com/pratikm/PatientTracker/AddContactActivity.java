@@ -16,13 +16,6 @@ public class AddContactActivity extends AppCompatActivity {
 
     RadioGroup mRadioGroup;
     RadioButton mRadioButton;
-    String sexType, email;
-
-    public void setSexType(String sexType) {
-        this.sexType = sexType;
-    }
-    public void setEmail(String email) {this.email = email;}
-    public String getEmail() {return this.email;}
 
     PatientContactCRUD helper = new PatientContactCRUD(this);
 
@@ -40,6 +33,14 @@ public class AddContactActivity extends AppCompatActivity {
         String sex = mRadioButton.getText().toString();
         setSexType(sex);
     }
+
+    String sexType = "Female", email;
+    public void setSexType(String sexType) {
+        this.sexType = sexType;
+    }
+    public String getSex() {return this.sexType;}
+    public void setEmail(String email) {this.email = email;}
+    public String getEmail() {return this.email;}
 
     public void onClickSave(View view) {
         EditText mEditTextFirstName = (EditText)findViewById(R.id.editText_firstname);
@@ -60,10 +61,10 @@ public class AddContactActivity extends AppCompatActivity {
         setEmail(email);
 
         if(email.equals("")||firstName.equals("")||lastName.equals("")||mobile.equals("")) {
-            Toast error = Toast.makeText(AddContactActivity.this, "Required fields * are empty", Toast.LENGTH_LONG);
+            Toast error = Toast.makeText(AddContactActivity.this, "Required fields * are empty", Toast.LENGTH_SHORT);
             error.show();
         }
-        if(mobile.length()<10) {
+        else if(mobile.length()<10) {
             Toast error = Toast.makeText(AddContactActivity.this, "Mobile number must be 10 digits", Toast.LENGTH_SHORT);
             error.show();
         }
@@ -71,21 +72,19 @@ public class AddContactActivity extends AppCompatActivity {
             PatientContactContract c = new PatientContactContract();
             c.setFirstName(firstName);
             c.setLastName(lastName);
-            c.setSex(sexType);
+            c.setSex(getSex());
             c.setMobile(mobile);
             c.setEmailAddress(email);
             c.setPostalAddress(address);
 
             helper.insertPatientContact(c);
 
-            Toast patientCreatedMessage = Toast.makeText(AddContactActivity.this, "New Patient Added!", Toast.LENGTH_LONG);
+            Toast patientCreatedMessage = Toast.makeText(AddContactActivity.this, "New Patient Added!", Toast.LENGTH_SHORT);
             patientCreatedMessage.show();
+            Intent intentHealth = new Intent(AddContactActivity.this, AddHealthActivity.class);
+            intentHealth.putExtra("email", getEmail());
+            startActivity(intentHealth);
         }
 
-    }
-    public void onClickSaveHealthDetails(View view) {
-        Intent intentHealth = new Intent(AddContactActivity.this, AddHealthActivity.class);
-        intentHealth.putExtra("email", getEmail());
-        startActivity(intentHealth);
     }
 }

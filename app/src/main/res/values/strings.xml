@@ -9,18 +9,19 @@
     <string name="button_sign_up">Sign Up</string>
 
     <!--Sign Up Page-->
-    <string name="tv_email">E-mail Address</string>
-    <string name="tv_name">Name</string>
-    <string name="tv_username">Username</string>
-    <string name="tv_password">New Password</string>
-    <string name="tv_confirm_password">Confirm Password</string>
+    <string name="tv_email">E-mail Address *</string>
+    <string name="tv_name">Name *</string>
+    <string name="tv_username">Username *</string>
+    <string name="tv_password">New Password *</string>
+    <string name="tv_confirm_password">Confirm Password *</string>
 
     <!-- Main Activity Page -->
     <string name="tv_welcome_username">Welcome User!</string>
     <string name="tv_doctor_menu">Doctor\'s Menu</string>
-    <string name="button_add_patient">Add Patient Profile</string>
-    <string name="button_search_name">Search By Name</string>
-    <string name="button_search_arrival">Search By Arrival</string>
+    <string name="button_add_patient">Add a new Patient Profile</string>
+    <string name="button_add_health_record">Add Health Record for Old Patient</string>
+    <string name="button_search_name">Search By Patient Name</string>
+    <string name="button_search_arrival">Search By Date of Appointment</string>
     <string name="title_activity_add_patient">Add Patient Details</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
@@ -37,11 +38,11 @@
         <item>AB -</item>
     </string-array>
 
-    <string name="tv_firstname">First Name</string>
-    <string name="tv_lastname">Last Name</string>
+    <string name="tv_firstname">First Name *</string>
+    <string name="tv_lastname">Last Name *</string>
     <string name="tv_gender">Sex</string>
-    <string name="tv_mobile">Mobile No.</string>
-    <string name="tv_add_email">E-mail</string>
+    <string name="tv_mobile">Mobile No. *</string>
+    <string name="tv_add_email">E-mail *</string>
     <string name="tv_address">Address</string>
 
     <string name="male">Male</string>
