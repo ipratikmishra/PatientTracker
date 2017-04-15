@@ -36,12 +36,12 @@ public class SearchDateAdapter extends RecyclerView.Adapter<SearchDateAdapter.Vi
             mTextViewMedication = (TextView) itemView.findViewById(R.id.tv_patient_medication_value);
             mTextViewNotes = (TextView) itemView.findViewById(R.id.tv_patient_note_value);
             mTextViewDateVisit = (TextView) itemView.findViewById(R.id.tv_patient_DateVisit);
-            mTextViewEmail = (TextView) itemView.findViewById(R.id.tv_patient_email);
+            mTextViewEmail = (TextView) itemView.findViewById(R.id.tv_patient_email_id);
         }
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.health_details_by_date_list_item, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.health_by_date_list_item, parent, false);
         ViewHolder holder = new ViewHolder(v);
         return holder;
     }

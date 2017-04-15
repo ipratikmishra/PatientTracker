@@ -135,6 +135,7 @@ public class PatientHealthCRUD {
                 patient.setMedication(cursor.getString(cursor.getColumnIndex(PatientHealthEntry.COLUMN_MEDICATION)));
                 patient.setNotes(cursor.getString(cursor.getColumnIndex(PatientHealthEntry.COLUMN_NOTES)));
                 patient.setDateVisit(cursor.getString(cursor.getColumnIndex(PatientHealthEntry.COLUMN_DATE_OF_VISIT)));
+                patient.setEmail(cursor.getString(cursor.getColumnIndex(PatientHealthEntry.COLUMN_EMAIL)));
                 healthList.add(patient);
 
             } while (cursor.moveToNext());

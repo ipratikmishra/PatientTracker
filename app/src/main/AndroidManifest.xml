@@ -28,21 +28,26 @@
             android:theme="@style/AppTheme.ActionBar" />
         <activity
             android:name=".SearchNameActivity"
+            android:label="Search By Name"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AddContactActivity"
             android:screenOrientation="portrait"
+            android:label="Add Contact Details"
             android:theme="@style/AppTheme.ActionBar" />
         <activity
             android:name=".AddHealthActivity"
             android:screenOrientation="portrait"
+            android:label="Add Health Details"
             android:theme="@style/AppTheme.ActionBar" />
         <activity
             android:name=".HealthDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.ActionBar" />
         <activity android:name=".AddHealthRecordActivity" />
-        <activity android:name=".SearchDateActivity"></activity>
+        <activity android:name=".SearchDateActivity">
+
+        </activity>
     </application>
 
 </manifest>

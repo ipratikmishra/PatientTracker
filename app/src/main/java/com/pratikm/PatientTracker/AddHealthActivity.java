@@ -114,7 +114,7 @@ public class AddHealthActivity extends AppCompatActivity {
         String dateVisit = mEditTextDateVisit.getText().toString();
 
         if(dateVisit.equals("")||getEmail().equals("")) {
-            Toast error = Toast.makeText(AddHealthActivity.this, "Required fields * are empty", Toast.LENGTH_LONG);
+            Toast error = Toast.makeText(AddHealthActivity.this, "Required fields * are empty", Toast.LENGTH_SHORT);
             error.show();
         }
         else {
@@ -127,10 +127,8 @@ public class AddHealthActivity extends AppCompatActivity {
             h.setMedication(medication);
             h.setNotes(notes);
             h.setDateVisit(dateVisit);
-            Toast toast = Toast.makeText(AddHealthActivity.this, getEmail(), Toast.LENGTH_SHORT);
-            toast.show();
             helper.insertPatientHealth(h);
-            Toast patientCreatedMessage = Toast.makeText(AddHealthActivity.this, "Health Information Added!", Toast.LENGTH_LONG);
+            Toast patientCreatedMessage = Toast.makeText(AddHealthActivity.this, "Health Information Added!", Toast.LENGTH_SHORT);
             patientCreatedMessage.show();
             this.finish();
         }

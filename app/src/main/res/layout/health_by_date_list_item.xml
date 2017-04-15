@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/mainLayout_health_by_date"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="0dp">
+
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="20dp"
+        app:contentPadding="10dp"
+        app:cardBackgroundColor="@color/colorText"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+
+            <TextView
+                android:id="@+id/tv_patient_DateVisit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="30dp"
+                android:text="New Text"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_patient_email_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textSize="22sp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="5dp"
+                android:layout_centerInParent="true"
+                android:layout_above="@+id/constraintLayout"
+                android:layout_centerHorizontal="true" />
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_patient_DateVisit"
+                android:padding="5dp"
+                android:layout_centerInParent="true"
+                android:id="@+id/constraintLayout">
+                <TextView
+                    android:id="@+id/tv_patient_age"
+                    android:layout_width="37dp"
+                    android:layout_height="22dp"
+                    android:text="@string/tv_patient_age"
+                    android:textColor="#ff565656"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="5dp" />
+                <TextView
+                    android:id="@+id/tv_patient_age_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:textColor="#ff565656"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_patient_age"
+                    app:layout_constraintTop_toTopOf="@+id/tv_patient_age"
+                    app:layout_constraintVertical_bias="0.0"
+                    android:layout_marginLeft="140dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginStart="140dp" />
+
+
+                <TextView
+                    android:id="@+id/tv_patient_blood_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_patient_age"
+                    android:text="@string/tv_patient_bloodGroup"
+                    android:textColor="#ff565656"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_patient_age"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp" />
+                <TextView
+                    android:id="@+id/tv_patient_blood_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:textColor="#ff565656"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_patient_blood_group"
+                    app:layout_constraintTop_toTopOf="@+id/tv_patient_blood_group"
+                    app:layout_constraintVertical_bias="0.0"
+                    android:layout_marginLeft="140dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginStart="140dp" />
+                <TextView
+                    android:id="@+id/tv_patient_condition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_patient_condition"
+                    android:textColor="#ff565656"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_patient_blood_group"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="5dp" />
+                <TextView
+                    android:id="@+id/tv_patient_condition_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:textColor="#ff565656"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_patient_condition"
+                    app:layout_constraintTop_toTopOf="@+id/tv_patient_condition"
+                    app:layout_constraintVertical_bias="0.0"
+                    android:layout_marginLeft="140dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginStart="140dp" />
+                <TextView
+                    android:id="@+id/tv_patient_medication"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_patient_medication"
+                    android:textColor="#ff565656"
+                    android:textSize="18sp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_patient_condition"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp" />
+                <TextView
+                    android:id="@+id/tv_patient_medication_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:textColor="#ff565656"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_patient_medication"
+                    app:layout_constraintTop_toTopOf="@+id/tv_patient_medication"
+                    app:layout_constraintVertical_bias="0.0"
+                    android:layout_marginLeft="140dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginStart="140dp" />
+                <TextView
+                    android:id="@+id/tv_note"
+                    android:layout_width="48dp"
+                    android:layout_height="21dp"
+                    android:layout_below="@+id/tv_patient_medication"
+                    android:text="@string/tv_patient_notes"
+                    android:textColor="#ff565656"
+                    android:textSize="18sp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_patient_medication"
+                    android:layout_marginLeft="10dp"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+                <TextView
+                    android:id="@+id/tv_patient_note_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:textColor="#ff565656"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="140dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginStart="140dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_note"
+                    app:layout_constraintTop_toTopOf="@+id/tv_note" />
+            </android.support.constraint.ConstraintLayout>
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>
