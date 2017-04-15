@@ -30,6 +30,10 @@
     <string name="button_add_record">Add Health Record</string>
     <string name="tv_add_record">Enter registered E-Mail ID to entry a new health record</string>
 
+    <!--SearchDateActivity-->
+    <string name="button_search_date">Search</string>
+    <string name="tv_search_date">Enter date of arrival of the Patient</string>
+
     <!--Contact and Health tabs-->
     <string-array name="blood_group">
         <item>O +</item>

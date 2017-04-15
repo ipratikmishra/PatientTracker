@@ -70,7 +70,7 @@
 
     <EditText
         android:id="@+id/editText_age"
-        android:layout_width="97dp"
+        android:layout_width="85dp"
         android:layout_height="43dp"
         android:ems="10"
         android:inputType="number"
@@ -107,10 +107,13 @@
 
     <EditText
         android:id="@+id/editText_visit_date"
-        android:layout_width="155dp"
+        android:layout_width="100dp"
         android:layout_height="39dp"
         android:ems="10"
         android:inputType="date"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:longClickable="false"
         app:layout_constraintLeft_toRightOf="@+id/tv_date_of_visit"
         android:layout_marginLeft="25dp"
         android:layout_marginStart="25dp"

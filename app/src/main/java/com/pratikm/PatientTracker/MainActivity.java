@@ -69,6 +69,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(searchIntent);
                 break;
             case R.id.button_search_arrival:
+                Intent searchDateIntent = new Intent(MainActivity.this, SearchDateActivity.class);
+                startActivity(searchDateIntent);
                 break;
         }
     }

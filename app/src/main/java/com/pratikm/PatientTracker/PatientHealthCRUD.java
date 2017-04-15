@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.pratikm.PatientTracker.PatientHealthContract.*;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -66,7 +67,7 @@ public class PatientHealthCRUD {
 
         //Open connection to read only
         SQLiteDatabase db = helper.getReadableDatabase();
-        String selectQuery =  "SELECT  " +
+        String selectQuery = "SELECT  " +
                 PatientHealthEntry.COLUMN_AGE + "," +
                 PatientHealthEntry.COLUMN_BLOOD_GROUP + "," +
                 PatientHealthEntry.COLUMN_MEDICATION + "," +
@@ -74,7 +75,9 @@ public class PatientHealthCRUD {
                 PatientHealthEntry.COLUMN_NOTES + "," +
                 PatientHealthEntry.COLUMN_DATE_OF_VISIT +
                 " FROM " + PatientHealthEntry.TABLE_NAME +
-                " WHERE " + PatientHealthEntry.COLUMN_EMAIL + " = " + "'"  + email + "'"+ ";";
+                " WHERE " + PatientHealthEntry.COLUMN_EMAIL + " = " + "'" + email + "'" +
+                " ORDER BY  date" + "(" + PatientHealthEntry.COLUMN_DATE_OF_VISIT + ")" +
+                " DESC" + ";";
 
         //PatientHealthEntry patient = new PatientHealthEntry();
         ArrayList<PatientHealthContract> healthList = new ArrayList<>();
@@ -99,31 +102,39 @@ public class PatientHealthCRUD {
         cursor.close();
         db.close();
         return healthList;
-    /*
-    public ArrayList<HashMap<String, String>> getHealthList() {
+
+    }
+
+    public ArrayList<PatientHealthContract> getHealthListByDate(String date) {
 
         //Open connection to read only
         SQLiteDatabase db = helper.getReadableDatabase();
-        String selectQuery =  "SELECT  " +
+        String selectQuery = "SELECT  " +
                 PatientHealthEntry.COLUMN_AGE + "," +
+                PatientHealthEntry.COLUMN_EMAIL + "," +
                 PatientHealthEntry.COLUMN_BLOOD_GROUP + "," +
                 PatientHealthEntry.COLUMN_MEDICATION + "," +
                 PatientHealthEntry.COLUMN_CONDITION + "," +
                 PatientHealthEntry.COLUMN_NOTES + "," +
                 PatientHealthEntry.COLUMN_DATE_OF_VISIT +
-                " FROM " + PatientHealthEntry.TABLE_NAME;
+                " FROM " + PatientHealthEntry.TABLE_NAME +
+                " WHERE " + PatientHealthEntry.COLUMN_DATE_OF_VISIT + " = " + "'" + date + "'" + ";";
 
         //PatientHealthEntry patient = new PatientHealthEntry();
-        ArrayList<HashMap<String, String>> healthList = new ArrayList<HashMap<String, String>>();
+        ArrayList<PatientHealthContract> healthList = new ArrayList<>();
 
         Cursor cursor = db.rawQuery(selectQuery, null);
         // looping through all rows and adding to list
 
         if (cursor.moveToFirst()) {
             do {
-                HashMap<String, String> patient = new HashMap<String, String>();
-                patient.put("age", cursor.getString(cursor.getColumnIndex(PatientHealthEntry.COLUMN_AGE)));
-                patient.put("bloodGroup", cursor.getString(cursor.getColumnIndex(PatientHealthEntry.COLUMN_BLOOD_GROUP)));
+                PatientHealthContract patient = new PatientHealthContract();
+                patient.setAge(cursor.getString(cursor.getColumnIndex(PatientHealthEntry.COLUMN_AGE)));
+                patient.setBloodGroup(cursor.getString(cursor.getColumnIndex(PatientHealthEntry.COLUMN_BLOOD_GROUP)));
+                patient.setCondition(cursor.getString(cursor.getColumnIndex(PatientHealthEntry.COLUMN_CONDITION)));
+                patient.setMedication(cursor.getString(cursor.getColumnIndex(PatientHealthEntry.COLUMN_MEDICATION)));
+                patient.setNotes(cursor.getString(cursor.getColumnIndex(PatientHealthEntry.COLUMN_NOTES)));
+                patient.setDateVisit(cursor.getString(cursor.getColumnIndex(PatientHealthEntry.COLUMN_DATE_OF_VISIT)));
                 healthList.add(patient);
 
             } while (cursor.moveToNext());
@@ -132,7 +143,5 @@ public class PatientHealthCRUD {
         cursor.close();
         db.close();
         return healthList;
-    */
-
     }
 }

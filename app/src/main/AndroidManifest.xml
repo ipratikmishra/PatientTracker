@@ -36,12 +36,13 @@
         <activity
             android:name=".AddHealthActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.ActionBar"></activity>
+            android:theme="@style/AppTheme.ActionBar" />
         <activity
             android:name=".HealthDetailsActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.ActionBar"></activity>
-        <activity android:name=".AddHealthRecordActivity"></activity>
+            android:theme="@style/AppTheme.ActionBar" />
+        <activity android:name=".AddHealthRecordActivity" />
+        <activity android:name=".SearchDateActivity"></activity>
     </application>
 
 </manifest>
