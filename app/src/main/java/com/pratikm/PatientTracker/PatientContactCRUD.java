@@ -24,12 +24,12 @@ public class PatientContactCRUD {
 
     public static String createTable() {
         return "CREATE TABLE " + PatientContactEntry.TABLE_NAME + " ( " +
-                PatientContactEntry.COLUMN_ID  + " INT PRIMARY KEY NOT NULL, " +
-                PatientContactEntry.COLUMN_FIRST_NAME + " TEXT NOT NULL, " +
-                PatientContactEntry.COLUMN_LAST_NAME + " TEXT NOT NULL, " +
-                PatientContactEntry.COLUMN_SEX + " TEXT NOT NULL, " +
-                PatientContactEntry.COLUMN_MOBILE + " TEXT NOT NULL, " +
-                PatientContactEntry.COLUMN_EMAIL + " TEXT KEY NOT NULL, " +
+                PatientContactEntry.COLUMN_ID  + " INT, " +
+                PatientContactEntry.COLUMN_FIRST_NAME + " TEXT, " +
+                PatientContactEntry.COLUMN_LAST_NAME + " TEXT, " +
+                PatientContactEntry.COLUMN_SEX + " TEXT, " +
+                PatientContactEntry.COLUMN_MOBILE + " TEXT, " +
+                PatientContactEntry.COLUMN_EMAIL + " TEXT PRIMARY KEY NOT NULL, " +
                 PatientContactEntry.COLUMN_ADDRESS + " TEXT );";
     }
     public static String deleteTable() {
@@ -66,7 +66,6 @@ public class PatientContactCRUD {
                 PatientContactEntry.COLUMN_ADDRESS +
                 " FROM " + PatientContactEntry.TABLE_NAME;
 
-        //PatientContactEntry patient = new PatientContactEntry();
         ArrayList<PatientContactContract> patientList = new ArrayList<>();
 
         Cursor cursor = db.rawQuery(selectQuery, null);

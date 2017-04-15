@@ -4,8 +4,8 @@
 
     <application
         android:allowBackup="true"
-        android:label="@string/app_name"
         android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
@@ -28,21 +28,20 @@
             android:theme="@style/AppTheme.ActionBar" />
         <activity
             android:name=".SearchNameActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="AddContactActivity"
+            android:name=".AddContactActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.ActionBar" />
         <activity
             android:name=".AddHealthActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.ActionBar">
-        </activity>
+            android:theme="@style/AppTheme.ActionBar"></activity>
         <activity
-            android:name="HealthDetailsActivity"
+            android:name=".HealthDetailsActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.ActionBar">
-        </activity>
+            android:theme="@style/AppTheme.ActionBar"></activity>
+        <activity android:name=".AddHealthRecordActivity"></activity>
     </application>
 
 </manifest>

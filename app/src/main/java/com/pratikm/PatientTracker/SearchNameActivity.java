@@ -46,6 +46,7 @@ public class SearchNameActivity extends AppCompatActivity implements SearchView.
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SearchNameActivity.this,AddContactActivity.class));
+                finish();
             }
         });
     }
@@ -72,8 +73,8 @@ public class SearchNameActivity extends AppCompatActivity implements SearchView.
         ArrayList<PatientContactContract> patientList = patients.getPatientList();
         newText = newText.toLowerCase();
         ArrayList<PatientContactContract> newList = new ArrayList<>();
-        for(int id = 0; id<patientList.size(); id++) {
-            PatientContactContract currentPatient = patients.getPatientById(id);
+        for(int i = 0; i < patientList.size(); i++) {
+            PatientContactContract currentPatient =  patientList.get(i);
             String name = currentPatient.getFirstName().toLowerCase();
             if(name.contains(newText)) {
                 newList.add(currentPatient);

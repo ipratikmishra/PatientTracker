@@ -84,6 +84,7 @@ public class AddContactActivity extends AppCompatActivity {
             Intent intentHealth = new Intent(AddContactActivity.this, AddHealthActivity.class);
             intentHealth.putExtra("email", getEmail());
             startActivity(intentHealth);
+            this.finish();
         }
 
     }

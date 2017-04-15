@@ -13,6 +13,13 @@ public class AddHealthActivity extends AppCompatActivity {
 
     PatientHealthCRUD helper = new PatientHealthCRUD(this);
     Spinner mSpinnerBloodGroup;
+
+    String email;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getEmail() { return this.email; }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,11 +51,7 @@ public class AddHealthActivity extends AppCompatActivity {
         });
     }
 
-    String email;
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    public String getEmail() { return this.email; }
+
 
     String bloodType;
     public void setBloodType(String bloodType) {
@@ -59,8 +62,6 @@ public class AddHealthActivity extends AppCompatActivity {
 
 
         EditText mEditTextAge = (EditText)findViewById(R.id.editText_age);
-
-//        String bloodType = mSpinnerBloodGroup.getSelectedItem().toString();
 
 
         EditText mEditTextCondition = (EditText)findViewById(R.id.editText_condition);
@@ -74,7 +75,7 @@ public class AddHealthActivity extends AppCompatActivity {
         String notes = mEditTextNotes.getText().toString();
         String dateVisit = mEditTextDateVisit.getText().toString();
 
-        if(dateVisit.equals("")||getEmail()==null) {
+        if(dateVisit.equals("")||getEmail().equals("")) {
             Toast error = Toast.makeText(AddHealthActivity.this, "Required fields * are empty", Toast.LENGTH_LONG);
             error.show();
         }
@@ -88,7 +89,8 @@ public class AddHealthActivity extends AppCompatActivity {
             h.setMedication(medication);
             h.setNotes(notes);
             h.setDateVisit(dateVisit);
-
+            Toast toast = Toast.makeText(AddHealthActivity.this, getEmail(), Toast.LENGTH_SHORT);
+            toast.show();
             helper.insertPatientHealth(h);
             Toast patientCreatedMessage = Toast.makeText(AddHealthActivity.this, "Health Information Added!", Toast.LENGTH_LONG);
             patientCreatedMessage.show();

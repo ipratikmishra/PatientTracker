@@ -25,7 +25,7 @@ public class PatientHealthCRUD {
 
     public static String createTable() {
         return "CREATE TABLE " + PatientHealthEntry.TABLE_NAME + " ( " +
-                PatientHealthEntry.COLUMN_ID + " INT PRIMARY KEY NOT NULL, " +
+                PatientHealthEntry.COLUMN_ID + " INT NOT NULL, " +
                 PatientHealthEntry.COLUMN_EMAIL + " TEXT NOT NULL, " +
                 PatientHealthEntry.COLUMN_AGE + " INT NOT NULL, " +
                 PatientHealthEntry.COLUMN_BLOOD_GROUP + " TEXT NOT NULL, " +

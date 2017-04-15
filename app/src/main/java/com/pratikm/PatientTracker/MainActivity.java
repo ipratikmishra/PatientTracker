@@ -41,11 +41,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mTextViewWelcome.setText(welcomeMessage);
 
         Button mButtonAddPatient = (Button)findViewById(R.id.button_add_patient);
+        Button mButtonAddRecord = (Button)findViewById(R.id.button_add_health_record);
         Button mButtonSearchName = (Button)findViewById(R.id.button_search_name);
         Button mButtonSearchArrival = (Button)findViewById(R.id.button_search_arrival);
 
 
         mButtonAddPatient.setOnClickListener(this);
+        mButtonAddRecord.setOnClickListener(this);
         mButtonSearchName.setOnClickListener(this);
         mButtonSearchArrival.setOnClickListener(this);
 
@@ -57,6 +59,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_add_patient:
                 Intent intent = new Intent(MainActivity.this, AddContactActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.button_add_health_record:
+                Intent addHealthIntent = new Intent(MainActivity.this, AddHealthRecordActivity.class);
+                startActivity(addHealthIntent);
                 break;
             case R.id.button_search_name:
                 Intent searchIntent = new Intent(MainActivity.this, SearchNameActivity.class);

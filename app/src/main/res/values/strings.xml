@@ -26,6 +26,10 @@
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
 
+    <!--AddHealthRecordActivity-->
+    <string name="button_add_record">Add Health Record</string>
+    <string name="tv_add_record">Enter registered E-Mail ID to entry a new health record</string>
+
     <!--Contact and Health tabs-->
     <string-array name="blood_group">
         <item>O +</item>
