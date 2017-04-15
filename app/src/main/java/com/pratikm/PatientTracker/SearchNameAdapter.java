@@ -81,4 +81,10 @@ public class SearchNameAdapter extends RecyclerView.Adapter<SearchNameAdapter.My
     public int getItemCount() {
         return patientList.size();
     }
+
+    public void setFilter(ArrayList<PatientContactContract> newList) {
+        patientList = new ArrayList<>();
+        patientList.addAll(newList);
+        notifyDataSetChanged();
+    }
 }

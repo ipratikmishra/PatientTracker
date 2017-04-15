@@ -6,7 +6,7 @@
     android:id="@+id/mainLayout_contact"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#FFF"
+    android:background="@color/colorFormBackground"
     android:orientation="vertical"
     android:weightSum="10">
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -15,38 +15,38 @@
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFF"
+        android:background="@color/primary_light"
         android:orientation="horizontal"
-        android:weightSum="10"
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="0dp">
 
         <ImageView
             android:id="@+id/ic_user"
-            android:layout_width="57dp"
-            android:layout_height="70dp"
+            android:layout_width="69dp"
+            android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:src="@drawable/ic_action_user"
-            android:layout_marginStart="8dp"
+            android:background="@color/colorFormBackground"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent" />
+            android:layout_marginTop="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="0dp" />
 
 
         <TextView
             android:id="@+id/tv_patient_first_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
             android:text="New Text"
-            android:textColor="@color/colorBackground"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="22sp"
-            app:layout_constraintLeft_toRightOf="@+id/ic_user"
             app:layout_constraintTop_toTopOf="@+id/ic_user"
-            android:layout_marginStart="16dp" />
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toRightOf="@+id/ic_user"
+            android:layout_marginLeft="16dp" />
 
         <TextView
             android:id="@+id/tv_patient_last_name"
@@ -55,7 +55,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:text="New Text"
-            android:textColor="@color/colorBackground"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_patient_first_name"
             app:layout_constraintLeft_toRightOf="@+id/tv_patient_first_name" />
@@ -67,7 +67,7 @@
             android:layout_marginTop="4dp"
             android:elevation="24dp"
             android:text="New Text"
-            android:textColor="#ff565656"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp"
             app:layout_constraintLeft_toLeftOf="@+id/tv_patient_email"
             app:layout_constraintTop_toBottomOf="@+id/tv_patient_email"
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="New Text"
-            android:textColor="#ff565656"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp"
             app:layout_constraintLeft_toLeftOf="@+id/tv_patient_first_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_patient_first_name"
@@ -94,7 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="7dp"
             android:text="TextView"
-            android:textColor="@color/colorText"
+            android:textColor="@color/primary"
             app:layout_constraintBaseline_toBaselineOf="@+id/tv_patient_last_name"
             app:layout_constraintLeft_toRightOf="@+id/tv_patient_last_name"
             android:layout_marginStart="7dp" />
@@ -104,8 +104,8 @@
 
     <View
         android:layout_width="368dp"
-        android:layout_height="1dp"
-        android:background="#deeaee"
+        android:layout_height="2dp"
+        android:background="@color/colorBackground"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="86dp" />
 </LinearLayout>

@@ -1,19 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.pratikm.PatientTracker.SearchNameActivity">
-<android.support.v7.widget.RecyclerView
-    android:id="@+id/recycler_view_search_name"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.pratikm.PatientTracker.SearchNameActivity">
+    tools:context="com.pratikm.PatientTracker.SearchNameActivity"
+    android:orientation="vertical">
 
-</android.support.v7.widget.RecyclerView>
-</FrameLayout>
+        <include
+            layout="@layout/toolbar_layout">
+        </include>
+
+        <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.pratikm.PatientTracker.SearchNameActivity">
+
+        <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_search_name"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@color/colorBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.pratikm.PatientTracker.SearchNameActivity">
+
+    </android.support.v7.widget.RecyclerView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="62dp"
+            android:layout_height="61dp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@android:drawable/ic_input_add"
+            app:backgroundTint="@color/colorText" />
+    </FrameLayout>
+</LinearLayout>

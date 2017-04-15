@@ -30,7 +30,7 @@ public class PatientContactCRUD {
                 PatientContactEntry.COLUMN_SEX + " TEXT NOT NULL, " +
                 PatientContactEntry.COLUMN_MOBILE + " TEXT NOT NULL, " +
                 PatientContactEntry.COLUMN_EMAIL + " TEXT KEY NOT NULL, " +
-                PatientContactEntry.COLUMN_ADDRESS + " TEXT);";
+                PatientContactEntry.COLUMN_ADDRESS + " TEXT );";
     }
     public static String deleteTable() {
         return "DROP TABLE IF EXISTS " + PatientContactEntry.TABLE_NAME;
@@ -90,43 +90,6 @@ public class PatientContactCRUD {
         return patientList;
 
     }
-
-    /*
-    public ArrayList<HashMap<String, String>> getPatientList() {
-        //Open connection to read only
-        SQLiteDatabase db = helper.getReadableDatabase();
-        String selectQuery =  "SELECT  " +
-                PatientContactEntry.COLUMN_FIRST_NAME + "," +
-                PatientContactEntry.COLUMN_LAST_NAME + "," +
-                PatientContactEntry.COLUMN_SEX + "," +
-                PatientContactEntry.COLUMN_MOBILE + "," +
-                PatientContactEntry.COLUMN_EMAIL + "," +
-                PatientContactEntry.COLUMN_ADDRESS +
-                " FROM " + PatientContactEntry.TABLE_NAME;
-
-        //PatientContactEntry patient = new PatientContactEntry();
-        ArrayList<HashMap<String, String>> patientList = new ArrayList<HashMap<String, String>>();
-
-        Cursor cursor = db.rawQuery(selectQuery, null);
-        // looping through all rows and adding to list
-
-        if (cursor.moveToFirst()) {
-            do {
-                HashMap<String, String> patient = new HashMap<String, String>();
-                patient.put("firstName", cursor.getString(cursor.getColumnIndex(PatientContactEntry.COLUMN_FIRST_NAME)));
-                patient.put("email", cursor.getString(cursor.getColumnIndex(PatientContactEntry.COLUMN_EMAIL)));
-                patientList.add(patient);
-
-            } while (cursor.moveToNext());
-        }
-
-        cursor.close();
-        db.close();
-        return patientList;
-
-    }
-
-  */
 
     public PatientContactContract getPatientById(int Id){
         SQLiteDatabase db = helper.getReadableDatabase();
