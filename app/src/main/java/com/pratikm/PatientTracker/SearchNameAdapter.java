@@ -1,7 +1,9 @@
 package com.pratikm.PatientTracker;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,14 +26,16 @@ import static android.content.ContentValues.TAG;
 public class SearchNameAdapter extends RecyclerView.Adapter<SearchNameAdapter.MyMainViewHolder> {
 
     private Context context;
+    private AdapterCallback mAdapterCallback;
     private ArrayList<PatientContactContract> patientList;
 
     public SearchNameAdapter(Context context, ArrayList<PatientContactContract> patientList) {
         this.patientList = patientList;
         this.context = context;
+        this.mAdapterCallback = ((AdapterCallback) context);
     }
 
-    public class MyMainViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class MyMainViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         TextView mTextViewPatientFirstName, mTextViewPatientLastName, mTextViewPatientSex, mTextViewPatientEmail, mTextViewPatientMobile;
         ImageView mImageViewUser;
         LinearLayout linearLayout;
@@ -39,6 +43,7 @@ public class SearchNameAdapter extends RecyclerView.Adapter<SearchNameAdapter.My
         public MyMainViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
             linearLayout = (LinearLayout) itemView.findViewById(R.id.mainLayout_contact);
             mTextViewPatientFirstName = (TextView) itemView.findViewById(R.id.tv_patient_first_name);
             mTextViewPatientLastName = (TextView) itemView.findViewById(R.id.tv_patient_last_name);
@@ -55,6 +60,32 @@ public class SearchNameAdapter extends RecyclerView.Adapter<SearchNameAdapter.My
             itemView.getContext().startActivity(i);
         }
 
+
+        @Override
+        public boolean onLongClick(View itemView) {
+                    final String Email = mTextViewPatientEmail.getText().toString();
+                    AlertDialog.Builder a_builder = new AlertDialog.Builder(itemView.getContext());
+                    a_builder.setMessage("Do you want to delete this Patient Record?")
+                            .setCancelable(false)
+                            .setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    mAdapterCallback.deleteRecord(Email);
+                                    Toast.makeText(context, "Patient Deleted", Toast.LENGTH_SHORT).show();
+                                    patientList.remove(getAdapterPosition());
+                                    notifyDataSetChanged();
+                                }
+                            }).setNegativeButton("No",new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            }) ;
+                    AlertDialog alert = a_builder.create();
+                    alert.setTitle("PatientTracker");
+                    alert.show();
+            return true;
+        }
     }
 
     @Override
@@ -83,5 +114,8 @@ public class SearchNameAdapter extends RecyclerView.Adapter<SearchNameAdapter.My
         patientList = new ArrayList<>();
         patientList.addAll(newList);
         notifyDataSetChanged();
+    }
+    public static interface AdapterCallback {
+        void deleteRecord(String Email);
     }
 }

@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class SearchNameActivity extends AppCompatActivity implements SearchView.OnQueryTextListener{
+public class SearchNameActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, SearchNameAdapter.AdapterCallback{
 
     PatientContactCRUD patients = new PatientContactCRUD(this);
     RecyclerView mRecyclerView;
@@ -82,5 +82,11 @@ public class SearchNameActivity extends AppCompatActivity implements SearchView.
         }
         mRecyclerViewAdapter.setFilter(newList);
         return true;
+    }
+
+
+    @Override
+    public void deleteRecord(String Email) {
+        patients.deletePatientByEmail(Email);
     }
 }

@@ -14,7 +14,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.pratikm.PatientTracker.LoginActivty">
+    tools:context="com.pratikm.PatientTracker.LoginActivty"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
 
 

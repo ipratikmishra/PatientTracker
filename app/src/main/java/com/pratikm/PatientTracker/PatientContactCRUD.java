@@ -124,4 +124,11 @@ public class PatientContactCRUD {
         db.close();
         return patient;
     }
+
+    public void deletePatientByEmail(String Email){
+        SQLiteDatabase db = helper.getWritableDatabase();
+        db.delete(PatientContactEntry.TABLE_NAME, PatientContactEntry.COLUMN_EMAIL + " = ?",
+                new String[] { String.valueOf(Email) });
+        db.close();
+    }
 }
